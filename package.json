@@ -1,0 +1,45 @@
+{
+  "name": "vkssr",
+  "version": "1.0.0",
+  "description": "Vue SSR Koa2 Scaffold",
+  "main": "src/app.js",
+  "repository": "git@github.com:meitianyitan/vkssr.git",
+  "author": "Weich <sosout@139.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development node config/server.js",
+    "start": "cross-env NODE_ENV=production node config/server.js",
+    "build": "rimraf dist && npm run build:web && npm run build:server && npm run build:api",
+    "build:web": "cross-env NODE_ENV=production webpack --config config/webpack.web.config.js --progress --hide-modules",
+    "build:server": "cross-env NODE_ENV=production webpack --config config/webpack.server.config.js --progress --hide-modules",
+    "build:api": "cross-env NODE_ENV=production webpack --config config/webpack.api.config.js --progress --hide-modules"
+  },
+  "dependencies": {
+    "chokidar": "^2.0.4",
+    "compressible": "^2.0.15",
+    "html-minifier": "^3.5.21",
+    "koa": "^2.6.2",
+    "koa-compress": "^3.0.0",
+    "koa-send": "^5.0.0",
+    "lru-cache": "^5.1.1",
+    "memory-fs": "^0.4.1",
+    "vue-server-renderer": "^2.5.17"
+  },
+  "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
+    "chalk": "^2.4.1",
+    "copy-webpack-plugin": "^4.6.0",
+    "cross-env": "^5.2.0",
+    "execa": "^1.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "mini-css-extract-plugin": "^0.4.5",
+    "opn": "^5.4.0",
+    "vue-loader": "^15.4.2",
+    "webpack": "^4.27.1",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

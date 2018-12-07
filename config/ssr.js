@@ -18,7 +18,7 @@ module.exports = app => {
   return new Promise((resolve, reject) => {
     const createRenderer = (bundle, options) => {
       return createBundleRenderer(bundle, Object.assign(options, {
-        cache: LRU({
+        cache: new LRU({
           max: 1000,
           maxAge: 1000 * 60 * 15
         }),
